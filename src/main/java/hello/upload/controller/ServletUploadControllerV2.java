@@ -24,7 +24,7 @@ import java.util.Collection;
 public class ServletUploadControllerV2 {
 
     @Value("${file.dir}")
-    private String fleDir;
+    private String fileDir;
 
     @GetMapping("/upload")
     public String newFile() {
@@ -62,7 +62,7 @@ public class ServletUploadControllerV2 {
 
             //파일에 저장하기
             if (StringUtils.hasText(part.getSubmittedFileName())) {
-                String fullPath = fleDir + part.getSubmittedFileName();
+                String fullPath = fileDir + part.getSubmittedFileName();
                 log.info("파일 저장 fullPath = {}", fullPath);
                 part.write(fullPath);
             }
